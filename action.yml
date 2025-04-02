@@ -36,13 +36,16 @@ runs:
         
     - name: Install Poetry
       run: pip install poetry
+      shell: bash
 
     - name: Install dependencies
       run: poetry install --no-interaction
+      shell: bash
       
     - name: Generate SBOM with Syft
       run: |
         docker run --rm -v $(pwd):/app anchore/syft:v0.72.0 . -o cyclonedx-json > ${{ inputs.bom_filename }}
+      shell: bash
       
     - name: Upload BOM to Dependency Track
       uses: DependencyTrack/gh-upload-sbom@v2.1.0
