@@ -2,7 +2,7 @@ name: 'Generate Python SBOM'
 description: 'A GitHub Action to generate SBOM using CycloneDX for Python projects and upload it to Dependency Track.'
 author: 'Your Name or Organization'
 inputs:
-  python-version:
+  python_version:
     description: 'Python version to setup'
     required: true
     default: '3.13'
