@@ -41,7 +41,7 @@ runs:
 
     - name: Install CycloneDX BOM Tool
       run: |
-        python -m pip install cyclonedx-bom
+        python3 -m pip install cyclonedx-bom
       shell: bash
 
     - name: Generate SBOM from requirements.txt
