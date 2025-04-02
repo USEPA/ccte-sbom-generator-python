@@ -35,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Generate and Upload SBOM
-        uses: your-username/your-action-repo@v1
+        uses: USEPA/ccte-sbom-generator-python@main
         with:
           python_version: '3.9'
           server_hostname: 'your-dependency-track-host'
