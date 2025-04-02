@@ -1,15 +1,15 @@
 name: 'Generate SBOM'
-description: 'A GitHub Action to generate SBOM using CycloneDX and upload it to Dependency Track.'
+description: 'A GitHub Action to generate SBOM using CycloneDX for Python projects and upload it to Dependency Track.'
 author: 'Your Name or Organization'
 inputs:
   python_version:
     description: 'Python version to setup'
     required: true
-    default: '3.x'
+    default: '3.10'
   architecture:
     description: 'Architecture of the Python interpreter (x86, x64, arm64)'
     required: false
-    default: ''
+    default: 'x64'
   server_hostname:
     description: 'Dependency Track server hostname'
     required: true
@@ -34,27 +34,24 @@ runs:
       uses: actions/checkout@v4
       
     - name: Set up Python
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v4
       with:
         python-version: ${{ inputs.python_version }}
-        
-    - name: Install Poetry
-      run: pip install poetry
+        architecture: ${{ inputs.architecture }}
+
+    - name: Install CycloneDX BOM Tool
+      run: |
+        python -m pip install cyclonedx-bom
       shell: bash
 
-    - name: Install dependencies
-      run: poetry install --no-interaction
-      shell: bash
-      
-    - name: Generate SBOM with Syft
+    - name: Generate SBOM from Environment
       run: |
-        docker run --rm -v $(pwd):/app anchore/syft:v0.72.0 . -o cyclonedx-json > ${{ inputs.bom_filename }}
+        cyclonedx-py environment > ${{ inputs.bom_filename }}
       shell: bash
-      
+
     - name: Upload BOM to Dependency Track
       uses: DependencyTrack/gh-upload-sbom@v2.1.0
       with:
-        
         serverHostname: ${{ inputs.server_hostname }}
         apiKey: ${{ inputs.api_key }}
         projectName: ${{ inputs.project_name }}
