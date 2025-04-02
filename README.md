@@ -38,7 +38,7 @@ jobs:
         uses: USEPA/ccte-sbom-generator-python@main
         with:
           python_version: '3.9'
-          server_hostname: 'your-dependency-track-host'
-          api_key: ${{ secrets.DEPENDENCY_TRACK_API_KEY }}
+          server_hostname: 'ccte-api-dependency-track.epa.gov'
+          api_key: ${{ secrets.SECRET_OWASP_DT_KEY }}
           project_name: 'Your-Project-Name'
           project_version: ${{ github.ref_name }}
