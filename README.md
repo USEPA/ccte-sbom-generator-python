@@ -37,9 +37,10 @@ jobs:
       - name: Generate and Upload SBOM
         uses: USEPA/ccte-sbom-generator-python@main
         with:
-          python_version: '3.10'
+          python_version: '3.13'
           architecture: 'x64' 
           server_hostname: 'ccte-api-dependency-track.epa.gov'
           api_key: ${{ secrets.SECRET_OWASP_DT_KEY }}
           project_name: 'Your-Project-Name'
           project_version: ${{ github.ref_name }}
+          bomFilename: ${{ inputs.bom_filename }}
