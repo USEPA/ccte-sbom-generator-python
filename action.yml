@@ -6,6 +6,10 @@ inputs:
     description: 'Python version to setup'
     required: true
     default: '3.x'
+  architecture:
+    description: 'Architecture of the Python interpreter (x86, x64, arm64)'
+    required: false
+    default: ''
   server_hostname:
     description: 'Dependency Track server hostname'
     required: true
@@ -50,6 +54,7 @@ runs:
     - name: Upload BOM to Dependency Track
       uses: DependencyTrack/gh-upload-sbom@v2.1.0
       with:
+        
         serverHostname: ${{ inputs.server_hostname }}
         apiKey: ${{ inputs.api_key }}
         projectName: ${{ inputs.project_name }}
