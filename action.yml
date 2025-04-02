@@ -48,7 +48,22 @@ runs:
       run: |
         cyclonedx-py requirements requirements.txt -o ${{ inputs.bom_filename }}
       shell: bash
+      
+    - name: Upload SBOM artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: sbom-artifact
+        path: ${{ inputs.bom_filename }}
 
+    - name: Download SBOM artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: sbom-artifact
+
+    - name: List Directory Contents
+      run: ls -la
+      shell: bash
+      
     - name: Upload BOM to Dependency Track
       uses: DependencyTrack/gh-upload-sbom@v3
       with:
