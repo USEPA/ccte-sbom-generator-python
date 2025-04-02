@@ -12,7 +12,7 @@ This GitHub Action generates a Software Bill of Materials (SBOM) for Python appl
 
 | Name            | Description                                 | Required | Default       |
 |-----------------|---------------------------------------------|----------|---------------|
-| python_version   | Python version to setup                    | Yes      | 3.x           |
+| python-version   | Python version to setup                    | Yes      | 3.x           |
 | server_hostname  | Dependency Track server hostname            | Yes      |               |
 | api_key          | API key for Dependency Track                | Yes      |               |
 | project_name     | Project name for Dependency Track           | Yes      |               |
