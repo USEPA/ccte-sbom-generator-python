@@ -73,4 +73,4 @@ runs:
         projectVersion: ${{ inputs.project_version }}
         bomfilename: ${{ inputs.bom_filename }}
         autoCreate: true
-        #bomfilename: sbom.json
+        
