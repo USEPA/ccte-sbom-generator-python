@@ -39,6 +39,7 @@ runs:
         python-version: '3.13'
         architecture: 'x64'
         cache: 'pip'
+        allow-prereleases: true  
 
     - name: Install CycloneDX BOM Tool
       run: |
