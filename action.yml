@@ -71,6 +71,6 @@ runs:
         apiKey: ${{ inputs.api_key }}
         projectName: ${{ inputs.project_name }}
         projectVersion: ${{ inputs.project_version }}
-        bomFile: ${{ inputs.bom_filename }}
+        bomfilename: ${{ inputs.bom_filename }}
         autoCreate: true
-        bomfilename: sbom.json
+        #bomfilename: sbom.json
