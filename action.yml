@@ -33,14 +33,7 @@ runs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: ${{ inputs.python_version }}
-        check-latest: true
-        architecture:  ${{ inputs.architecture }}
-        cache: 'pip'
-        
+    
 
     - name: Install CycloneDX BOM Tool
       run: |
