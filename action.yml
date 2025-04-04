@@ -46,7 +46,7 @@ runs:
 
     - name: Generate SBOM from requirements.txt
       run: |
-        cyclonedx-py requirements requirements.txt -o ${{ inputs.bom_filename }}
+        cyclonedx-py -r -i ./requirements.txt -o ${{ inputs.bom_filename }}
       shell: bash
       
     - name: Upload SBOM artifact
