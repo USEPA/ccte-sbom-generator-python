@@ -36,8 +36,8 @@ runs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.13'
-        architecture: 'x64'
+        python-version: 3.13
+        architecture: x64
 
     - name: Install CycloneDX BOM Tool
       run: |
