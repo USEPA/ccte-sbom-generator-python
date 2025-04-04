@@ -39,7 +39,7 @@ runs:
         python-version: ${{ inputs.python_version }}
         architecture:  ${{ inputs.architecture }}
         cache: 'pip'
-        allow-prereleases: true  
+        
 
     - name: Install CycloneDX BOM Tool
       run: |
